@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security and Risk - Slide 1</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div>
+        <h1>Security and Risk</h1>
+        <h2>Slide 1: An Introduction to Security</h2>
+        <h3>Confidentiality</h3>
+        <ol>
+            <li>Keeping information secret.</li>
+            <li>Only authorized people should see the information.</li>
+        </ol>
+        Example: Your password must only be known to you, not to random people.
+        
+        <h3>Integrity</h3>
+        <ol>
+            <li>Making sure information is accurate and not changed by accident or bad people.</li>
+        </ol>
+        Example: Imagine you transfer $100 to a friend. If the amount changes to $1000 by a hacker, that’s a problem. Would break Integrity.
+        
+        <h3>Availability</h3>
+        <ol>
+            <li>Making sure information and services are available when needed.</li>
+        </ol>
+        Example: If a website is down, you can’t access your bank account. That's a failure of Availability.
+
+        <br><br>
+        These three together are called the <i>"CIA" Triad</i> of security.
+        
+        <br><br>
+        Quick Visual:
+        <ul>
+            Think of a safe box:
+            <li>Confidentiality = Lock of a safe</li>
+            <li>Integrity = Keep the items inside unchanged.</li>
+            <li>Availability = Be able to open it when you need</li>
+        </ul>
+    </div>
+    <br><br>
+    <div id="securebox">
+        <h2>SecureBox Simulator</h2>
+        <input type="text" id="messageInput" placeholder="Enter your secret message" />
+        <button onclick="handleSecureBox()">Send Secure Message</button>
+
+        <div id="results" style="margin-top: 20px;"></div
+    </div>
+
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
