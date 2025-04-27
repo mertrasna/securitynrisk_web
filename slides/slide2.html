@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security and Risk - Slide 2</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div>
+        <h1>Security and Risk</h1>
+        <h2>Slide 2: Cryptography I - Core Ideas</h2>
+        <h3>What is Cryptography?</h3>
+        <ul>
+            <li>It's the study of mathematical techniques to protect information</li>
+            <li>It provides important security services like:</li>
+            <ul>
+                <li>Confidentiality (hide the information)</li>
+                <li>Integrity (ensure no one changed it)</li>
+                <li>Authentication (verify who created/sent the info)</li>
+                <li>Authorization (allow access based on identity)</li>
+                <li>Non-repudation (prove who sent it - can’t deny it later)</li>
+            </ul>
+        </ul>
+        <h3>What is a Cryptosystem?</h3>
+        <ul>
+            <li>It's basically a formal way to define how encryption works, using 5 components:</li>
+             <ul>
+                <li>P - Set of plain messages (normal text)</li>
+                <li>C - Set of cipher messages (encrypted text)</li>
+                <li>K - Set of keys (secret values)</li>
+                <li>E - Encryption function (turns P into C)</li>
+                <li>D - Decryption function (turns C back into P)</li>
+             </ul>
+            <li>There's an important property:</li>
+            <ul>
+                <li>Dk(Ek(m)) = m  </li>
+                <li>It means: if you <b>encrypt</b> a message with key "k" and then <b>decrypt</b> it with the same key, you get back the original message!</li>
+            </ul>
+        </ul>
+        <h3>Kerckhoff's Principle</h3>
+        <ul>
+            <li>The system's security should depend only on the secrecy of the key, not on the secrecy of the encryption algorithm itself.</li>
+            <li>Example: Even if an attacker knows you're using AES encryption, they still can't decrypt your message without the key.</li>
+        </ul>
+        <h3>Visual example to remember: Think of Cryptography like sending  a locked treasure chest</h3>
+        <ul>
+            <li>Message (P) = treasure inside</li>
+            <li>Lock (E) = encrypts the treasure</li>
+            <li>Key (K) = key to unlock it</li>
+            <li>Chest when locked (C) = cipher text</li>
+            <li>Unlocking (D) = decryption to get the treasure back!</li>
+        </ul>
+        <br><br>
+        <div id="crypto-demo">
+            <h2>Try Simple Encryption/Decryption</h2>
+            
+            <label for="messageInput">Enter your message:</label><br>
+            <input type="text" id="messageInput" placeholder="Type something..."><br><br>
+
+            <label for="keyInput">Enter your key (number):</label><br>
+            <input type="number" id="keyInput" placeholder="e.g., 3"><br><br>
+
+            <button onclick="encryptMessage()">Encrypt</button>
+            <button onclick="decryptMessage()">Decrypt</button>
+
+            <div id="cryptoResults" style="margin-top: 20px;"></div>
+        </div>
+
+    </div>
+    <script src="/js/script.js"></script> 
+</body>
+</html>

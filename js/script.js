@@ -51,3 +51,54 @@ function displayResult(text) {
     p.textContent = text;
     resultsDiv.appendChild(p);
 }
+
+function caesarCipher(str, key) {
+    return str.split('').map(char => {
+        let code = char.charCodeAt(0);
+
+        if (code >= 65 && code <= 90) {
+            // Uppercase letters
+            return String.fromCharCode(((code - 65 + key) % 26) + 65);
+        } else if (code >= 97 && code <= 122) {
+            // Lowercase letters
+            return String.fromCharCode(((code - 97 + key) % 26) + 97);
+        } else {
+            // Non-alphabetic characters stay the same
+            return char;
+        }
+    }).join('');
+}
+
+function encryptMessage() {
+    const message = document.getElementById("messageInput").value;
+    const key = parseInt(document.getElementById("keyInput").value);
+
+    if (!message || isNaN(key)) {
+        alert("Please enter both a message and a key!");
+        return;
+    }
+
+    const encrypted = caesarCipher(message, key);
+    displayCryptoResult("🔒 Encrypted Message: " + encrypted);
+}
+
+function decryptMessage() {
+    const message = document.getElementById("messageInput").value;
+    const key = parseInt(document.getElementById("keyInput").value);
+
+    if (!message || isNaN(key)) {
+        alert("Please enter both a message and a key!");
+        return;
+    }
+
+    const decrypted = caesarCipher(message, 26 - (key % 26)); // Reverse the shift
+    displayCryptoResult("🔓 Decrypted Message: " + decrypted);
+}
+
+function displayCryptoResult(text) {
+    const resultsDiv = document.getElementById("cryptoResults");
+    resultsDiv.innerHTML = ""; // clear previous results
+    const p = document.createElement("p");
+    p.textContent = text;
+    resultsDiv.appendChild(p);
+}
