@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security and Risk - Slide 4</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div>
+        <h1>Access Control - Core Concepts</h1>
+        <h2>What is Access Control?</h2>
+        <ul>
+            <li>Access Control = Who can access which resource under which conditions.</li>
+            <li>It's way to protect systems and information from unauthorized access.</li>
+        </ul>
+        <h2>Main Steps in Access Control:</h2>
+        <ul>
+            <li>Identification - Who are you? (username, ID)</li>
+            <li>Authentication - Can you prove it? (password, biometric, token)</li>
+            <li>Authorization - What are you allowed to do? (permissions, access level)</li>
+            <li>Accountability - Can we track what you did? (logs, audit trails)</li>
+        </ul>
+        <h2>Identity Management (IdM)</h2>
+        <ul>
+            <li>Managing user identities automatically:
+                <ul>
+                    <li>Create, update, and delete accounts</li>
+                    <li>Password resets</li>
+                    <li>Single Sign-On (SSO)</li>
+                </ul>
+            </li>
+        </ul>
+        <h2>Password Attacks:</h2>
+        <ul>
+            <li>Brute Force: Try all possible passwords.</li>
+            <li>Dictionary Attacks: Try common words first.</li>
+            <li>Rainbow tables: Precomputed hashes of passwords.</li>
+            <li>Social engineering: Trick people into giving their passwords.</li>
+        </ul>
+        <h2>Password Protection Techniques</h2>
+        <ul>
+            <li>Hashing passwords instead of storing them directly.</li>
+            <li>Salting: Add random data to passwords before hashing.</li>
+            <li>Shadow files: Store hashed passwords in protected files.</li>
+        </ul>
+        <h2>Access Control Models:</h2>
+        <ul>
+            <li>Mandatory Access Control (MAC) - System enforces strict rules</li>
+            <li>Discretionary Access Control (DAC) - Owners decide who can access their resources</li>
+            <li>Role-Based Access Control (RBAC) - Access based on user roles (admin, manager, etc.)</li>
+            <li>Attribute-Based Access Control (ABAC) - Access based on attributes (age, department, etc.)</li>
+        </ul>
+        <h2>Famous Security Models:</h2>
+        <ul>
+            <li>
+                Bell-LaPadula Model (confidentiality focused):
+                <ul>
+                    <li>No read up (simple security property)</li>
+                    <li>No write down (*-property)</li>
+                </ul>
+            </li>
+            <li>
+                Biba Model (integrity focused):
+                <ul>
+                    <li>No write up</li>
+                    <li>No read down</li>
+                </ul>
+            </li>
+        </ul>
+        <br><br>
+    <div id="access-control-demo" style="background-color: #f0f8ff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+        <h2>Access Control Simulation</h2>
+        <p>Try logging in with a username and password: (alice - 1234 (admin))</p>
+        
+        <label for="usernameInput">Username:</label><br>
+        <input type="text" id="usernameInput" placeholder="Enter username"><br><br>
+        <label for="passwordInput">Password:</label><br>
+        <input type="password" id="passwordInput" placeholder="Enter password"><br><br>
+        <button onclick="login()">Login</button>
+        <div id="loginResults" style="margin-top: 20px;"></div>
+    </div>
+    </div>
+    
+    <script src="/js/script.js"></script>
+</body>
+</html>

@@ -141,3 +141,38 @@ function displayRsaResult(text) {
     p.textContent = text;
     resultsDiv.appendChild(p);
 }
+
+const users = [
+    { username: "alice", password: "1234", role: "Admin" },
+    { username: "bob", password: "password", role: "User" },
+    { username: "eve", password: "hackme", role: "Guest" }
+];
+
+function login() {
+    const username = document.getElementById("usernameInput").value.trim();
+    const password = document.getElementById("passwordInput").value.trim();
+    const resultDiv = document.getElementById("loginResults");
+    resultDiv.innerHTML = "";
+
+    const user = users.find(u => u.username === username && u.password === password);
+
+    if (user) {
+        const p = document.createElement("p");
+        p.textContent = `✅ Authentication successful! Welcome ${user.username}. Role: ${user.role}`;
+        
+        const p2 = document.createElement("p");
+        if (user.role === "Admin") {
+            p2.textContent = "Authorized Actions: Access Dashboard, Manage Users, Change Settings.";
+        } else if (user.role === "User") {
+            p2.textContent = "Authorized Actions: View Profile, Browse Catalog.";
+        } else if (user.role === "Guest") {
+            p2.textContent = "Authorized Actions: View Public Pages only.";
+        }
+        resultDiv.appendChild(p);
+        resultDiv.appendChild(p2);
+    } else {
+        const p = document.createElement("p");
+        p.textContent = "❌ Authentication failed. Invalid username or password.";
+        resultDiv.appendChild(p);
+    }
+}
