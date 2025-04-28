@@ -102,3 +102,42 @@ function displayCryptoResult(text) {
     p.textContent = text;
     resultsDiv.appendChild(p);
 }
+
+// Small fixed RSA example (tiny numbers for learning)
+const p = 5;
+const q = 11;
+const n = p * q; // 5 * 11 = 55
+const e = 3;     // public exponent
+const d = 27;    // private exponent (precomputed manually)
+
+function rsaEncrypt() {
+    const m = parseInt(document.getElementById("rsaMessageInput").value);
+
+    if (isNaN(m) || m >= n) {
+        alert("Please enter a small number less than " + n);
+        return;
+    }
+
+    const c = Math.pow(m, e) % n;
+    displayRsaResult("🔒 Encrypted Message (C): " + c);
+}
+
+function rsaDecrypt() {
+    const c = parseInt(document.getElementById("rsaMessageInput").value);
+
+    if (isNaN(c) || c >= n) {
+        alert("Please enter a small number less than " + n);
+        return;
+    }
+
+    const m = Math.pow(c, d) % n;
+    displayRsaResult("🔓 Decrypted Message (M): " + m);
+}
+
+function displayRsaResult(text) {
+    const resultsDiv = document.getElementById("rsaResults");
+    resultsDiv.innerHTML = ""; // clear previous
+    const p = document.createElement("p");
+    p.textContent = text;
+    resultsDiv.appendChild(p);
+}

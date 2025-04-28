@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security and Risk - Slide 3</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div>
+        <h1>Security and Risk</h1>
+        <h2>RSA (Rivest-Shamir-Adleman Algorithm)</h2>
+        <ul>
+            <li>A type of asymmetric encryption (uses two different keys). </li>
+            <li>Public key (PU) encrypts, Private key (PR) decrypts.</li>
+            <li>Based on very hard math problem: factoring large primes</li>
+            <li>
+                Steps:
+                <ul>
+                    <li>1. Choose two large prime numbers "p" and "q"</li>
+                    <li>2. Compute "n = p * q"</li>
+                    <li>3. Choose e (public exponent, often 65537)</li>
+                    <li>4. Find d (private exponent) using special math</li>
+                </ul>
+            </li>
+            <li>Encryption: C = M^e mod n</li>
+            <li>Decryption: M = C^d mod n</li>
+            <li>Public key (e,n) -> for encrypting</li>
+            <li>Private key (d,n) -> for decrypting</li>
+        </ul>
+        <h2>Diffie-Hellman Key Exchange</h2>
+        <ul>
+            <li>Securely exchange a secret key over insecure channels</li>
+            <li>Based on difficulty of discrete logarithm problem</li>
+            <li>
+                Steps: 
+                <ul>
+                    <li>1. Agree on public values: g (generator) and p (large prime)</li>
+                    <li>2. Alice chooses secret "a", Bob chooses secret "b"</li>
+                    <li>3. Alice sends "g^a mod p" to Bob, Bob sends "g^b mod p" to Alice</li>
+                    <li>
+                        4. Both compute the same shared key: 
+                        <ul>
+                            <li>Alice computes "(g^b mod p)^a mod p"</li>
+                            <li>Bob computes "(g^a mod p)^b mod p"</li>
+                        </ul>
+                    </li>
+                </ul> 
+            </li>
+            <li>They both get the same result without sharing their secrets!</li>
+        </ul>
+        <h2>Digital Signatures </h2>
+        <ul>
+            <li>
+                Used for: 
+                <ul>
+                    <li>Authenticating sender</li>
+                    <li>Proving message integrity</li>
+                    <li>Preventing sender from denying ("Non-repudiation")</li>
+                </ul>
+            </li>
+            <li>
+                How it works:
+                <ul>
+                    <li>1. Sender signs the message using private key</li>
+                    <li>2. Receiver verifies the signature using public key</li>
+                </ul>
+            </li>
+            <li>Used in secure emails, contracts, financial transactions, etc.</li>
+        </ul>
+        <h2>Fast Summary</h2>
+        <ul>
+            <li>RSA -> Public key encryption, private key decryption</li>
+            <li>Diffie-Hellman -> Create shared key without exposing secrets</li>
+            <li>Digital Signatures -> Prove authenticity + integrity with private key signature</li>
+        </ul>
+    </div>
+    <br><br>
+    <div id="rsa-info">
+        <h2>Understanding RSA Simulation</h2>
+        <p>This is a very simplified RSA demo using small numbers.</p>
+        <p>We are using:</p>
+        <ul>
+            <li>p = 5 (prime)</li>
+            <li>q = 11 (prime)</li>
+            <li>n = p × q = 55</li>
+            <li>e = 3 (public exponent)</li>
+            <li>d = 27 (private exponent)</li>
+        </ul>
+        <p>Encryption formula: <b>C = M<sup>e</sup> mod n</b></p>
+        <p>Decryption formula: <b>M = C<sup>d</sup> mod n</b></p>
+        <p>Example:</p>
+        <ul>
+            <li>Message M = 7</li>
+            <li>Encrypt: C = 7³ mod 55 = 13</li>
+            <li>Decrypt: M = 13²⁷ mod 55 = 7</li>
+        </ul>
+        <p>This shows how the message is securely transformed and recovered!</p>
+    </div>
+    <br><br>
+    <div id="rsa-demo">
+        <h2>Try Simple RSA Encryption/Decryption</h2>
+        
+        <label for="rsaMessageInput">Enter a number (Message M):</label><br>
+        <input type="number" id="rsaMessageInput" placeholder="e.g., 7"><br><br>
+        <button onclick="rsaEncrypt()">Encrypt</button>
+        <button onclick="rsaDecrypt()">Decrypt</button>
+        <div id="rsaResults" style="margin-top: 20px;"></div>
+    </div>
+    
+    <script src="/js/script.js"></script>
+</body>
+</html>
