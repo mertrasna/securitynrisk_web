@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security and Risk - Slide 5</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div>
+        <h1>Network Security - Core Concepts</h1>
+
+        <h2>Network Fundamentals</h2>
+        <ul>
+            <li>A network connects multiple devices for communication.</li>
+            <li>Protocols define rules for communication between devices.</li>
+        </ul>
+
+        <h2>OSI Model (7 Layers)</h2>
+        <ul>
+            <li>Application: Interface for user services (HTTP, FTP).</li>
+            <li>Presentation: Data formatting, encryption (SSL/TLS).</li>
+            <li>Session: Session management (RPC).</li>
+            <li>Transport: Reliable data transfer (TCP, UDP).</li>
+            <li>Network: Routing and addressing (IP, ICMP).</li>
+            <li>Data Link: Framing data for transmission (Ethernet, ARP).</li>
+            <li>Physical: Physical transmission of bits (Cables, Wi-Fi).</li>
+        </ul>
+
+        <h2>TCP/IP Model (Simplified)</h2>
+        <ul>
+            <li>Application Layer (HTTP, DNS)</li>
+            <li>Transport Layer (TCP, UDP)</li>
+            <li>Internet Layer (IP, ICMP)</li>
+            <li>Link Layer (Ethernet, ARP)</li>
+        </ul>
+
+        <h2>Firewalls</h2>
+        <ul>
+            <li>Packet Filtering Firewall: Filters traffic by IP, port, protocol.</li>
+            <li>Stateful Inspection Firewall: Tracks active connections.</li>
+            <li>Proxy Firewall: Inspects packets at application layer.</li>
+        </ul>
+
+        <h2>Common Network Threats</h2>
+        <ul>
+            <li>Interruption: Denial of service (DoS) attacks.</li>
+            <li>Interception: Sniffing, Man-in-the-Middle attacks.</li>
+            <li>Modification: Altering data during transmission.</li>
+            <li>Fabrication: Injecting false messages into the network.</li>
+        </ul>
+
+        <h2>Network Security Tools</h2>
+        <ul>
+            <li>SSL/TLS: Protects data in transit (HTTPS).</li>
+            <li>IPSec: Protects IP packets with encryption/authentication.</li>
+            <li>VPNs: Secure tunnels over public networks.</li>
+            <li>IDS/IPS: Intrusion Detection and Prevention Systems.</li>
+        </ul>
+        <br><br>
+        <div id="firewall-demo" style="background-color: #e6f7ff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            <h2>Firewall Packet Filtering Simulation</h2>
+            <p>Decide whether to ALLOW or BLOCK the incoming packets:</p>
+            
+            <button onclick="showPacket()">New Packet</button><br><br>
+        
+            <div id="packetInfo"></div><br>
+        
+            <button onclick="allowPacket()">Allow</button>
+            <button onclick="blockPacket()">Block</button>
+        
+            <div id="firewallResult" style="margin-top: 20px;"></div>
+        </div>
+        
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

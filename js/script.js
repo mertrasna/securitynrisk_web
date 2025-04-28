@@ -176,3 +176,50 @@ function login() {
         resultDiv.appendChild(p);
     }
 }
+
+const packets = [
+    { source: "10.1.1.3", trusted: true },
+    { source: "172.16.5.4", trusted: true },
+    { source: "198.51.100.1", trusted: false },
+    { source: "203.0.113.8", trusted: false },
+    { source: "192.168.1.10", trusted: true }
+];
+
+let currentPacket = null;
+
+function showPacket() {
+    const packetDiv = document.getElementById("packetInfo");
+    const randomIndex = Math.floor(Math.random() * packets.length);
+    currentPacket = packets[randomIndex];
+    packetDiv.textContent = `Incoming packet from IP: ${currentPacket.source}`;
+    
+    // Clear last result
+    document.getElementById("firewallResult").innerHTML = "";
+}
+
+function allowPacket() {
+    const resultDiv = document.getElementById("firewallResult");
+    if (!currentPacket) {
+        resultDiv.textContent = "❗ Please generate a packet first.";
+        return;
+    }
+    if (currentPacket.trusted) {
+        resultDiv.textContent = "✅ Correct! Trusted IP allowed.";
+    } else {
+        resultDiv.textContent = "❌ Wrong! You allowed an untrusted IP!";
+    }
+}
+
+function blockPacket() {
+    const resultDiv = document.getElementById("firewallResult");
+    if (!currentPacket) {
+        resultDiv.textContent = "❗ Please generate a packet first.";
+        return;
+    }
+    if (!currentPacket.trusted) {
+        resultDiv.textContent = "✅ Correct! Untrusted IP blocked.";
+    } else {
+        resultDiv.textContent = "❌ Wrong! You blocked a trusted IP!";
+    }
+}
+
