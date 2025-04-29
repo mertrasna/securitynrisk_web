@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security and Risk - Slide 10</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div>
+        <div style="text-align: center; margin-bottom: 20px;">
+            <a href="/index.html" style="display: inline-block; padding: 10px 20px; background-color: #0077cc; color: white; text-decoration: none; border-radius: 5px; font-size: 18px;">🏠 Home</a>
+        </div>
+        <h1>Introduction to Model Checking - Core Concepts</h1>
+
+        <h2>What is Model Checking?</h2>
+        <ul>
+            <li>Automated technique to verify system properties formally.</li>
+            <li>Used to find errors in system designs before deployment.</li>
+        </ul>
+
+        <h2>Key Steps in Model Checking</h2>
+        <ul>
+            <li><b>Modeling:</b> Create an abstract but accurate representation of the system (transition systems).</li>
+            <li><b>Formalizing Properties:</b> Define the desired behavior using logic (LTL, CTL).</li>
+            <li><b>Running the Model Checker:</b> Automatically check if the model satisfies the properties.</li>
+            <li><b>Analysis:</b> Diagnose counterexamples when properties are not satisfied.</li>
+        </ul>
+
+        <h2>Transition Systems</h2>
+        <ul>
+            <li>Graph of system states and transitions between them.</li>
+            <li>Represents all possible behaviors of the system.</li>
+        </ul>
+
+        <h2>Temporal Logics Used</h2>
+        <ul>
+            <li><b>Linear Temporal Logic (LTL):</b> Describes properties over linear sequences of events (time flows in a straight line).</li>
+            <li><b>Computation Tree Logic (CTL):</b> Describes properties over branching structures (multiple possible futures).</li>
+        </ul>
+
+        <h2>Advantages of Model Checking</h2>
+        <ul>
+            <li>Finds subtle design errors early.</li>
+            <li>Provides mathematical guarantees about system behavior.</li>
+            <li>Can produce counterexamples showing exactly where the design fails.</li>
+        </ul>
+
+        <h2>Challenges</h2>
+        <ul>
+            <li>State Explosion Problem: Number of states grows exponentially with system complexity.</li>
+            <li>Model abstraction must be carefully done to stay manageable.</li>
+        </ul>
+
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
