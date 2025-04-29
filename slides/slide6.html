@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security and Risk - Slide 6</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div>
+        <h1>Operating Systems Security - Core Concepts</h1>
+
+        <h2>Role of Operating Systems in Security</h2>
+        <ul>
+            <li>Controls interactions between users, applications, and hardware.</li>
+            <li>Provides user authentication, access control, process isolation, and resource protection.</li>
+        </ul>
+
+        <h2>Threats to Operating Systems</h2>
+        <ul>
+            <li>Malicious code (viruses, worms).</li>
+            <li>Unauthorized access and privilege escalation.</li>
+            <li>Buffer overflow, denial of service (DoS) attacks.</li>
+            <li>Insider threats and system misconfiguration.</li>
+        </ul>
+
+        <h2>Process Organization</h2>
+        <ul>
+            <li>Processes run in isolated memory spaces.</li>
+            <li>User mode vs Kernel mode: Kernel mode has full system access.</li>
+        </ul>
+
+        <h2>Technical Attack Types</h2>
+
+        <h3>Buffer Overflow Attack</h3>
+        <ul>
+            <li>Occurs when more data is written to a buffer than it can hold.</li>
+            <li>Can overwrite adjacent memory, allowing attackers to control execution flow.</li>
+        </ul>
+
+        <h3>String Formatting Attack</h3>
+        <ul>
+            <li>Occurs when user input is directly passed to formatted output functions like printf().</li>
+            <li>Can leak memory addresses or crash programs.</li>
+        </ul>
+
+        <h3>Integer Overflow Attack</h3>
+        <ul>
+            <li>Occurs when arithmetic operations exceed the maximum value of an integer.</li>
+            <li>Can bypass security checks, leading to vulnerabilities.</li>
+        </ul>
+
+        <h3>Code Injection Attack</h3>
+        <ul>
+            <li>Attacker injects and executes malicious code inside vulnerable applications.</li>
+            <li>Examples: SQL Injection, Cross-Site Scripting (XSS).</li>
+        </ul>
+
+        <h2>Protection Techniques</h2>
+        <ul>
+            <li>Address Space Layout Randomization (ASLR): Randomizes memory locations.</li>
+            <li>Stack Canaries: Detects buffer overflows before overwriting return addresses.</li>
+            <li>Non-Executable Memory (NX Bit): Marks memory regions as non-executable.</li>
+            <li>Code Reviews: Find vulnerabilities like overflows early.</li>
+        </ul>
+
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
